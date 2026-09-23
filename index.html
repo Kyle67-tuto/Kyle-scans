@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KYLE SCANS</title>
+<meta name="theme-color" content="#0d0b14">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath d='M24 3l19 11v20L24 45 5 34V14z' fill='%23171322' stroke='%238b5cf6' stroke-width='3'/%3E%3Cpath d='M15 13h5v22h-5zM22 24.5L33.5 12H40L28 25zM28 23l12 13h-6.5L22 24z' fill='%23f0c674'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0d0b14;--card:#171322;--line:#2a2440;--pri:#8b5cf6;--gold:#f0c674;--tx:#ece9f5;--mut:#9a94ad}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tx);font:16px/1.7 Cairo,Tahoma,system-ui,sans-serif;min-height:100vh}
+a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:9;display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:#0d0b14ee;border-bottom:1px solid var(--line);backdrop-filter:blur(8px)}
+.logo{display:flex;align-items:center;gap:10px}
+.wm{font-weight:800;letter-spacing:.16em;font-size:1.1rem}
+.wm i{font-style:normal;background:linear-gradient(90deg,#a78bfa,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+#au{display:flex;gap:10px;align-items:center;font-size:.9rem}
+button,.btn{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--tx);padding:6px 14px;border-radius:8px}
+.btn{background:var(--pri);border-color:var(--pri);display:inline-block;font-weight:600;margin-top:10px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+main{max-width:1000px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:1.5rem}h2{font-size:1.35rem;margin-bottom:8px}h3{margin:18px 0 8px}
+.hero{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-bottom:20px}
+input,textarea,select{width:100%;font:inherit;background:var(--bg);color:var(--tx);border:1px solid var(--line);border-radius:8px;padding:9px 12px;margin:5px 0}
+.hero input{max-width:300px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:14px}
+.card img{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:10px;border:1px solid var(--line);background:var(--card)}
+.card:hover img{border-color:var(--pri)}
+.card b{display:block;font-size:.92rem;line-height:1.4;margin-top:6px}
+.card small,.msg{color:var(--mut)}
+.msg{text-align:center;padding:40px 0}
+.det{display:flex;gap:20px;flex-wrap:wrap}
+.det img{width:200px;max-width:100%;border-radius:12px;border:1px solid var(--line)}
+.det>div{flex:1;min-width:240px}
+.tags span{display:inline-block;border:1px solid var(--line);color:var(--gold);border-radius:20px;padding:0 10px;margin:0 0 6px 6px;font-size:.8rem}
+.chs>div,.row{display:flex;justify-content:space-between;align-items:center}
+.chs>div{padding:10px 14px;border:1px solid var(--line);border-radius:8px;margin-bottom:6px;background:var(--card)}
+.chs a{flex:1}
+.rt{text-align:center}
+.pages{max-width:800px;margin:12px auto}.pages img{display:block;width:100%}
+.rnav{display:flex;justify-content:space-between;max-width:800px;margin:10px auto}
+.rnav a{border:1px solid var(--line);background:var(--card);padding:6px 16px;border-radius:8px}
+.box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+.row{padding:6px 0}
+.st{color:var(--gold);font-size:.9rem}
+footer{text-align:center;color:var(--mut);padding:24px;font-size:.85rem}
+</style>
+</head>
+<body>
+<svg style="position:absolute;width:0;height:0" aria-hidden="true">
+<defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#f0c674"/></linearGradient></defs>
+<symbol id="lg" viewBox="0 0 48 48"><path d="M24 3l19 11v20L24 45 5 34V14z" fill="#171322" stroke="url(#gg)" stroke-width="2.5" stroke-linejoin="round"/><path d="M15 13h5v22h-5zM22 24.5L33.5 12H40L28 25zM28 23l12 13h-6.5L22 24z" fill="url(#gg)"/></symbol>
+</svg>
+<header>
+  <a class="logo" href="#/" aria-label="KYLE SCANS"><svg width="40" height="40"><use href="#lg"/></svg><span class="wm" dir="ltr">KYLE <i>SCANS</i></span></a>
+  <div id="au"></div>
+</header>
+<main id="app"><p class="msg">جارٍ التحميل…</p></main>
+<footer>© KYLE SCANS</footer>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-auth.js";
+import { getFirestore, collection, doc, getDocs, setDoc, updateDoc, query, orderBy, limit, addDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+
+const ADMIN = "anwarbah96@gmail.com";
+const IMGBB = "bf32151ce65f47f2707753b98cfa9b67";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyB9Z5Tjc0yWg69GlWdUBTZ9VgUcGrh5mMU",
+  authDomain: "v-scans.firebaseapp.com",
+  projectId: "v-scans",
+  storageBucket: "v-scans.firebasestorage.app",
+  messagingSenderId: "545198752043",
+  appId: "1:545198752043:web:efdc1656b5fd4f354ec56e",
+  measurementId: "G-NDQER8NPM9"
+};
+const app0 = initializeApp(firebaseConfig);
+try { getAnalytics(app0); } catch (e) {}
+const auth = getAuth(app0);
+const db = getFirestore(app0);
+const googleProvider = new GoogleAuthProvider();
+
+const $ = s => document.querySelector(s);
+const app = $('#app');
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let user = null, series = [], chc = {};
+const isAdmin = () => user?.email?.toLowerCase() === ADMIN;
+const login = () => signInWithPopup(auth, googleProvider).catch(e => alert('تعذر تسجيل الدخول: ' + e.code));
+
+async function up(f) {
+  const fd = new FormData(); fd.append('image', f);
+  const r = await fetch('https://api.imgbb.com/1/upload?key=' + IMGBB, { method: 'POST', body: fd });
+  const j = await r.json();
+  if (!j.success) throw new Error(j.error?.message || 'فشل رفع الصورة');
+  return j.data.url;
+}
+async function loadSeries() {
+  if (series.length) return;
+  const s = await getDocs(query(collection(db, 'series'), orderBy('updated', 'desc'), limit(40)));
+  series = s.docs.map(d => ({ id: d.id, ...d.data() }));
+}
+async function loadCh(id) {
+  if (!chc[id]) {
+    const s = await getDocs(query(collection(db, 'series', id, 'chapters'), orderBy('num', 'desc')));
+    chc[id] = s.docs.map(d => ({ id: d.id, ...d.data() }));
+  }
+  return chc[id];
+}
+
+const card = s => `<a class="card" href="#/s/${s.id}"><img loading="lazy" src="${esc(s.cover)}" alt=""><b>${esc(s.title)}</b><small>${s.chapters || 0} فصل</small></a>`;
+
+async function pageHome() {
+  await loadSeries();
+  app.innerHTML = `<div class="hero"><h1>أحدث الأعمال</h1><input id="q" placeholder="ابحث عن عمل…"></div><div class="grid" id="g"></div>`;
+  const draw = t => { const l = series.filter(s => s.title.toLowerCase().includes(t.toLowerCase())); $('#g').innerHTML = l.length ? l.map(card).join('') : '<p class="msg">لا توجد أعمال بعد.</p>'; };
+  draw(''); $('#q').oninput = e => draw(e.target.value);
+}
+
+async function pageSeries(id) {
+  await loadSeries();
+  const s = series.find(x => x.id === id);
+  if (!s) { app.innerHTML = '<p class="msg">العمل غير موجود.</p>'; return; }
+  const ch = await loadCh(id);
+  app.innerHTML = `<div class="det"><img src="${esc(s.cover)}" alt=""><div><h2>${esc(s.title)}</h2><p class="tags">${(s.genres || []).map(g => `<span>${esc(g)}</span>`).join('')}</p><p>${esc(s.desc)}</p>${ch.length ? `<a class="btn" href="#/r/${id}/${ch[ch.length - 1].id}">ابدأ القراءة</a>` : ''}</div></div>
+  <h3>الفصول</h3><div class="chs">${ch.map(c => `<div><a href="#/r/${id}/${c.id}">الفصل ${c.num}</a>${isAdmin() ? `<button data-del="${c.id}">حذف</button>` : ''}</div>`).join('') || '<p class="msg">لا توجد فصول بعد.</p>'}</div>`;
+  app.querySelectorAll('[data-del]').forEach(b => b.onclick = async () => {
+    if (!confirm('حذف هذا الفصل؟')) return;
+    await deleteDoc(doc(db, 'series', id, 'chapters', b.dataset.del));
+    await updateDoc(doc(db, 'series', id), { chapters: Math.max(0, ch.length - 1) });
+    delete chc[id]; series = []; route();
+  });
+}
+
+async function pageRead(sid, cid) {
+  const ch = await loadCh(sid), i = ch.findIndex(c => c.id === cid);
+  if (i < 0) { app.innerHTML = '<p class="msg">الفصل غير موجود.</p>'; return; }
+  const c = ch[i];
+  const nav = `<div class="rnav">${ch[i + 1] ? `<a href="#/r/${sid}/${ch[i + 1].id}">السابق</a>` : '<span></span>'}<a href="#/s/${sid}">الفصول</a>${i > 0 ? `<a href="#/r/${sid}/${ch[i - 1].id}">التالي</a>` : '<span></span>'}</div>`;
+  app.innerHTML = `<h2 class="rt">الفصل ${c.num}</h2>${nav}<div class="pages">${(c.images || []).map(u => `<img loading="lazy" src="${esc(u)}" alt="">`).join('')}</div>${nav}`;
+}
+
+async function pageAdmin() {
+  if (!user) { app.innerHTML = '<div class="msg"><p>سجّل الدخول أولاً.</p><button class="btn" id="l2">الدخول بحساب Google</button></div>'; $('#l2').onclick = login; return; }
+  if (!isAdmin()) { app.innerHTML = '<p class="msg">هذا الحساب ليس مديراً.</p>'; return; }
+  await loadSeries();
+  app.innerHTML = `<h2>لوحة التحكم</h2>
+  <form id="f1" class="box"><h3>إضافة عمل</h3><input name="t" placeholder="اسم العمل" required><textarea name="d" rows="3" placeholder="الوصف"></textarea><input name="g" placeholder="التصنيفات مفصولة بفاصلة"><label>الغلاف <input type="file" name="c" accept="image/*" required></label><button class="btn">حفظ العمل</button><p class="st"></p></form>
+  <form id="f2" class="box"><h3>إضافة فصل</h3><select name="s" required>${series.map(s => `<option value="${s.id}">${esc(s.title)}</option>`).join('')}</select><input name="n" type="number" step="any" placeholder="رقم الفصل" required><label>صور الفصل (تُرتب حسب اسم الملف) <input type="file" name="p" accept="image/*" multiple required></label><button class="btn">نشر الفصل</button><p class="st"></p></form>
+  <div class="box"><h3>حذف عمل</h3>${series.map(s => `<div class="row">${esc(s.title)}<button data-ds="${s.id}">حذف</button></div>`).join('') || '<p class="msg">لا توجد أعمال.</p>'}</div>`;
+
+  $('#f1').onsubmit = async e => {
+    e.preventDefault(); const f = e.target, st = f.querySelector('.st');
+    try {
+      st.textContent = 'جارٍ رفع الغلاف…';
+      const cover = await up(f.c.files[0]);
+      await addDoc(collection(db, 'series'), { title: f.t.value.trim(), desc: f.d.value.trim(), genres: f.g.value.split(/[,،]/).map(x => x.trim()).filter(Boolean), cover, chapters: 0, updated: Date.now() });
+      series = []; alert('تم حفظ العمل'); pageAdmin();
+    } catch (x) { st.textContent = 'خطأ: ' + x.message; }
+  };
+  $('#f2').onsubmit = async e => {
+    e.preventDefault(); const f = e.target, st = f.querySelector('.st'), imgs = [];
+    const files = [...f.p.files].sort((a, b) => a.name.localeCompare(b.name, undefined, { numeric: true }));
+    try {
+      for (const x of files) { st.textContent = `رفع الصورة ${imgs.length + 1} من ${files.length}…`; imgs.push(await up(x)); }
+      const sid = f.s.value, s = series.find(x => x.id === sid);
+      await addDoc(collection(db, 'series', sid, 'chapters'), { num: Number(f.n.value), images: imgs, created: Date.now() });
+      await updateDoc(doc(db, 'series', sid), { chapters: (s.chapters || 0) + 1, updated: Date.now() });
+      delete chc[sid]; series = []; alert('تم نشر الفصل'); pageAdmin();
+    } catch (x) { st.textContent = 'خطأ: ' + x.message; }
+  };
+  app.querySelectorAll('[data-ds]').forEach(b => b.onclick = async () => {
+    if (!confirm('حذف العمل؟')) return;
+    await deleteDoc(doc(db, 'series', b.dataset.ds)); series = []; pageAdmin();
+  });
+}
+
+async function route() {
+  const [p, a, b] = location.hash.slice(2).split('/');
+  window.scrollTo(0, 0);
+  try {
+    if (p === 's') await pageSeries(a);
+    else if (p === 'r') await pageRead(a, b);
+    else if (p === 'admin') await pageAdmin();
+    else await pageHome();
+  } catch (e) { app.innerHTML = `<p class="msg">تعذر التحميل: ${esc(e.message)}</p>`; }
+}
+
+onAuthStateChanged(auth, u => {
+  user = u;
+  $('#au').innerHTML = u ? `${isAdmin() ? '<a href="#/admin">لوحة التحكم</a>' : ''}<button id="lo">خروج</button>` : '<button id="li">دخول</button>';
+  if ($('#lo')) $('#lo').onclick = () => signOut(auth);
+  if ($('#li')) $('#li').onclick = login;
+  route();
+});
+window.addEventListener('hashchange', route);
+</script>
+</body>
+</html>
